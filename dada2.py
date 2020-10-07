@@ -1,5 +1,7 @@
 import time
 import os
+
+
 def patience_sort(arr):
     compares, copies = 0, 0
     size = len(arr)
