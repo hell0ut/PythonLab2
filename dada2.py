@@ -9,13 +9,17 @@ def patience_sort(arr):
             size_t=len(piles[j])
             compares += 1
             if size_t == 0 or (size_t > 0 and piles[j][-1] >= el):
-                copies += 1
+
                 piles[j].append(el)
+                copies += 1
                 if size_t == 0:
                     j_size += 1
                 break
+
+    lenghts=[len(el) for el in piles]
+    cur_j = 0
     for i in range(size):
-        for j in range(j_size):
+        for j in range(lenghts[cur_j]):
             compares += 1
             if len(piles[j])>0 and piles[j][-1]<piles[cur_j][-1]:
                 cur_j=j
@@ -46,5 +50,5 @@ if __name__=='__main__':
     for i in range(10):
         sorted_arr=patience_sort(arr)
     print("--- %s seconds ---" % (time.time() - start_time))
-    for n in sorted_arr:
-        print(n,sorted_arr[n])
+    for a in sorted_arr:
+        print(a,sorted_arr[a])
